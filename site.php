@@ -8,15 +8,40 @@
 </head>
 
 <body>
-  <?php
-  // Variables
-  $characterName = "Taiwo";
-  $characterAge = 35;
+  <form action="site.php" method="get">
+    <input type="text" name="firstColor">
+    <br>
+    <input type="text" name="secondColor">
+    <br>
+    <input type="text" name="person">
+    <br>
+    <input type="submit">
+  </form>
 
-  echo ("Hello World");
-  echo "<h1>This is my first page</h1>";
-  echo "<hr/>";
-  echo "<p>This is $characterName, she is $characterAge years old </p>";
+  <?php
+  $firstColor = $_GET["firstColor"];
+  $secondColor = $_GET["secondColor"];
+  $person = $_GET["person"];
+
+  echo "
+  <article>
+    <p>Roses are $firstColor </p>
+    <p>Violets are $secondColor </p>
+    <p>I love $person </p>
+  </article>
+  "
+  ?>
+
+  <form action="site.php" method="post">
+    Apples : <input type="checkbox" name="fruits[]" value="apples"><br>
+    Oranges : <input type="checkbox" name="fruits[]" value="oranges"><br>
+    Pears : <input type="checkbox" name="fruits[]" value="pears"><br>
+    <input type="submit">
+  </form>
+
+  <?php
+  $fruits = $_POST["fruits"];
+  echo $fruits[2];
   ?>
 </body>
 
